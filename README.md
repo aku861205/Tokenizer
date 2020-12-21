@@ -1,2 +1,3 @@
 # Tokenizer
-Tokenizer Project in System Programming Course
+CS214:System Programming, Fall 2020
+# 
