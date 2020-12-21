@@ -1,0 +1,65 @@
+Testcase1:
+./tokenizer "0 07 09 07.9 03.e  "
+octal integer: "0"
+octal integer: "07"
+decimal integer: "09"
+floating point: "07.9"
+octal integer: "03"
+structure member: "."
+word: "e"
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Testcase2: 
+./tokenizer "+,++,+==0930.9e-10 1205e10 12.05e97 04762 04.74E+10" 
+addition: "+"
+comma: ","
+increment: "++"
+comma: ","
+plus equals: "+="
+assignment: "="
+floating point: "0930.9e-10"
+decimal integer: "1205"
+word: "e10"
+floating point: "12.05e97"
+octal integer: "04762"
+floating point: "04.74E+10"
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Testcase3:
+(Testing line comment using xargs -0 command)
+(Following text save as testcase3.txt)
+
+.1997.12e+10e1234 sizeof //LINECOMMENT!!
+! >>=>= /*shitright equal*/ %=
+
+cat testcase3.txt|xargs -0 ./tokenizer
+floating point: "1997.12e+10"
+word: "e1234"
+Keyword sizeof: "sizeof"
+negate: "!"
+shift right equals: ">>="
+greater than or equal test: ">="
+mod equals: "%="
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Testcase4:
+./tokenizer
+NO INPUT!!!
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Testcase5:
+./tokenizer "double doubleee switch! /*COMMENT*/ ||| enum.0xffaif for"
+Keyword double: "double"
+word: "doubleee"
+Keyword switch: "switch"
+negate: "!"
+logical OR: "||"
+bitwise OR: "|"
+Keyword enum: "enum"
+structure member: "."
+hexadecimal integer: "0xffa"
+Keyword if: "if"
+Keyword for: "for"
+
+
+
