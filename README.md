@@ -1,5 +1,5 @@
 # Tokenizer
-CS214:System Programming, Fall 2020
+Assignment0 in CS214:System Programming, Fall 2020
 Completed by Hsinghui Ku
 # Description
 A tokenizer is a program that takes a single string of characters of an arbitrary length and breaks them
